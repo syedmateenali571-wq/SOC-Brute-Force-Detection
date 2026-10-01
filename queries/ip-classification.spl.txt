@@ -1,0 +1,4 @@
+| makeresults
+| eval src_ip="192.168.56.101"
+| eval ip_type=if(cidrmatch("10.0.0.0/8",src_ip) OR cidrmatch("172.16.0.0/12",src_ip) OR cidrmatch("192.168.0.0/16",src_ip),"Private / Internal","Public")
+| table src_ip ip_type
